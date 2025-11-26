@@ -1,7 +1,7 @@
 # 工作流名称
-name: Sync-Images-to-DockerHub-Example
+name: Sync-Images-to-ALIYUN-ACR
 # 工作流运行时显示名称
-run-name: ${{ github.actor }} is Sync Images to DockerHub.
+run-name: ${{ github.actor }} is Sync Images to ALIYUN-ACR.
 # 怎样触发工作流
 on:
   push:
@@ -21,17 +21,18 @@ jobs:
       uses: actions/checkout@v3
       
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2.9.1
+      uses: docker/setup-buildx-action@v4
 
     - name: Login to Docker Hub
-      uses: docker/login-action@v2.2.0
+      uses: docker/login-action@v3
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        registry: registry.cn-hangzhou.aliyuncs.com
+        username: ${{ secrets.ALIYUN_USERNAME }}
+        password: ${{ secrets.ALIYUN_PASSWORD }}
         logout: false
         
     - name: Use Skopeo Tools Sync Image to Docker Hub
       run: |
         #!/usr/bin/env bash
-        skopeo copy docker://gcr.io/kaniko-project/executor:v1.13.0 docker://weiyigeek/kaniko-executor:v1.13.0
+        skopeo copy docker://gcr.io/kaniko-project/executor:v1.13.0 docker://registry.cn-hangzhou.aliyuncs.com/k8s_mirror_hong/kaniko-executor:v1.13.0
  
