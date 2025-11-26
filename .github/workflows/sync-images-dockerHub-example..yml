@@ -15,7 +15,7 @@ on:
 # 工作流程任务（通常含有一个或多个步骤）
 jobs:
   syncimages:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
     - name: Checkout Repos
       uses: actions/checkout@v3
