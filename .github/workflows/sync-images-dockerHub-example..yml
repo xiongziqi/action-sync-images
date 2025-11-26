@@ -32,4 +32,8 @@ jobs:
       run: |
         #!/usr/bin/env bash
         skopeo copy docker://gcr.io/kaniko-project/executor:v1.13.0 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/kaniko-executor:v1.13.0
- 
+        skopeo copy docker://docker.io/library/polyaxon:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon:2.11.1
+        skopeo copy docker://docker.io/library/postgresql:15-alpine docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/postgresql:15-alpine
+        skopeo copy docker://docker.io/library/redis:7-alpine docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/redis:7-alpine
+        skopeo copy docker://docker.io/library/rabbitmq:3.11-alpine docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/rabbitmq:3.11-alpine
+
