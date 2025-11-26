@@ -55,4 +55,5 @@ jobs:
         skopeo copy docker://docker.io/polyaxon/polyaxon-hpsearch:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-hpsearch:2.11.1
         skopeo copy docker://docker.io/polyaxon/polyaxon-events-handlers:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-events-handlers:2.11.1
         skopeo copy docker://docker.io/polyaxon/polyaxon-scheduler:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-scheduler:2.11.1
-        
+        skopeo copy docker://registry.k8s.io/ingress-nginx/controller:v1.10.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/controller:v1.10.1
+        skopeo copy docker://registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/kube-webhook-certgen:v1.4.1
