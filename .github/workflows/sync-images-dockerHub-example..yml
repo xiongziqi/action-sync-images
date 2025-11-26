@@ -44,5 +44,15 @@ jobs:
         skopeo copy docker://docker.io/library/postgres:15-alpine docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/postgres:15-alpine
         skopeo copy docker://docker.io/library/redis:7-alpine docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/redis:7-alpine
         skopeo copy docker://docker.io/library/rabbitmq:3.11-alpine docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/rabbitmq:3.11-alpine
-        skopeo copy docker://docker.io/polyaxon/polyaxon:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon:2.11.1
+        skopeo copy docker://docker.io/polyaxon/polyaxon-api:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-api:2.11.1
+        skopeo copy docker://docker.io/polyaxon/polyaxon-gateway:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-gateway:2.11.1
+        skopeo copy docker://docker.io/polyaxon/polyaxon-streams:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-streams:2.11.1
+        skopeo copy docker://docker.io/polyaxon/polyaxon-operator:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-operator:2.11.1
+        skopeo copy docker://docker.io/polyaxon/polyaxon-agent:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-agent:2.11.1
+        skopeo copy docker://docker.io/polyaxon/polyaxon-init:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-init:2.11.1
+        skopeo copy docker://docker.io/polyaxon/polyaxon-sidecar:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-sidecar:2.11.1
+        skopeo copy docker://docker.io/polyaxon/polyaxon-cli:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-cli:2.11.1
+        skopeo copy docker://docker.io/polyaxon/polyaxon-hpsearch:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-hpsearch:2.11.1
+        skopeo copy docker://docker.io/polyaxon/polyaxon-events-handlers:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-events-handlers:2.11.1
+        skopeo copy docker://docker.io/polyaxon/polyaxon-scheduler:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/polyaxon-scheduler:2.11.1
         
