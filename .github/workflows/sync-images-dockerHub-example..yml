@@ -31,5 +31,5 @@ jobs:
     - name: Use Skopeo Tools Sync Image to ALIYUN-ACR
       run: |
         #!/usr/bin/env bash
-        skopeo copy docker://gcr.io/kaniko-project/executor:v1.13.0 docker://registry.cn-hangzhou.aliyuncs.com/k8s_mirror_hong/kaniko-executor:v1.13.0
+        skopeo copy docker://gcr.io/kaniko-project/executor:v1.13.0 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/kaniko-executor:v1.13.0
  
