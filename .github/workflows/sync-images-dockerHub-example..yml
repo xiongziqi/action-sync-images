@@ -106,3 +106,7 @@ jobs:
         # --- Ingress Nginx 组件 ---
         sync_image "registry.k8s.io/ingress-nginx/controller:v1.10.1"         "controller"           "v1.10.1"
         sync_image "registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.1" "kube-webhook-certgen" "v1.4.1"
+
+        # --- local-path-provisioner 组件 ---
+        sync_image "docker.io/rancher/local-path-provisioner:v0.0.30" "local-path-provisioner" "v0.0.30"
+        sync_image "docker.io/library/busybox:latest" "busybox" "latest"
