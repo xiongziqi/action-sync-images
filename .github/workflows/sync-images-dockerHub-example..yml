@@ -20,40 +20,96 @@ jobs:
     - name: Checkout Repos
       uses: actions/checkout@v3
 
-    # 1. 登录 Docker Hub (关键！解决拉取报错)
-    - name: Login to Docker Hub
-      uses: docker/login-action@v3
-      with:
-        registry: docker.io
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-        logout: false
+    # # 1. 登录 Docker Hub (关键！解决拉取报错)
+    # - name: Login to Docker Hub
+    #   uses: docker/login-action@v3
+    #   with:
+    #     registry: docker.io
+    #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+    #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+    #     logout: false
 
-    - name: Login to ALIYUN-ACR
-      uses: docker/login-action@v3
-      with:
-        registry: crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com
-        username: ${{ secrets.ALIYUN_USERNAME }}
-        password: ${{ secrets.ALIYUN_PASSWORD }}
-        logout: false 
+    # - name: Login to ALIYUN-ACR
+    #   uses: docker/login-action@v3
+    #   with:
+    #     registry: crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com
+    #     username: ${{ secrets.ALIYUN_USERNAME }}
+    #     password: ${{ secrets.ALIYUN_PASSWORD }}
+    #     logout: false 
         
     - name: Use Skopeo Tools Sync Image to ALIYUN-ACR
       run: |
         #!/usr/bin/env bash
-        ARGS="--override-os linux --override-arch amd64 --all"
-        skopeo copy $ARGS docker://docker.io/bitnamilegacy/postgresql:16.4.0-debian-12-r9 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/postgresql:16.4.0-debian-12-r9
-        skopeo copy $ARGS docker://docker.io/bitnamilegacy/redis:7.4.0-debian-12-r4 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/redis:7.4.0-debian-12-r4
-        skopeo copy $ARGS docker://docker.io/bitnamilegacy/rabbitmq:3.13.7-debian-12-r5 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/rabbitmq:3.13.7-debian-12-r5
-        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-api:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-api:2.11.1
-        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-gateway:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-gateway:2.11.1
-        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-streams:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-streams:2.11.1
-        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-operator:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-operator:2.11.1
-        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-agent:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-agent:2.11.1
-        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-init:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-init:2.11.1
-        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-sidecar:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-sidecar:2.11.1
-        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-cli:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-cli:2.11.1
-        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-hpsearch:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-hpsearch:2.11.1
-        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-events-handlers:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-events-handlers:2.11.1
-        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-scheduler:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-scheduler:2.11.1
-        skopeo copy $ARGS docker://registry.k8s.io/ingress-nginx/controller:v1.10.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/controller:v1.10.1
-        skopeo copy $ARGS docker://registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/kube-webhook-certgen:v1.4.1
+        set -e
+
+        # 1. 定义凭证
+        # 源端 (Docker Hub) 需要登录以避免限流
+        SRC_CREDS="--src-username ${{ secrets.DOCKERHUB_USERNAME }} --src-password ${{ secrets.DOCKERHUB_TOKEN }}"
+        # 目标端 (阿里云) 需要登录以推送
+        DEST_CREDS="--dest-username ${{ secrets.ALIYUN_USERNAME }} --dest-password ${{ secrets.ALIYUN_PASSWORD }}"
+        
+        # 2. 定义目标仓库前缀 (你的新命名空间)
+        TARGET_REGISTRY="docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s"
+
+        # 3. 定义同步函数 (核心逻辑)
+        sync_image() {
+          local source_image=$1
+          local target_name=$2
+          local target_tag=$3
+          
+          # 拼接完整的目标地址
+          local full_target="$TARGET_REGISTRY/$target_name:$target_tag"
+
+          echo "----------------------------------------------------"
+          echo "🔍 Checking: $target_name:$target_tag"
+          
+          # 步骤 A: 检查阿里云是否已存在该镜像
+          # 使用 $DEST_CREDS 凭证访问私有仓库
+          if skopeo inspect $DEST_CREDS "$full_target" > /dev/null 2>&1; then
+            echo "✅ [SKIP] Image already exists, skipping."
+          else
+            echo "🚀 [SYNC] Image not found, starting copy..."
+            echo "   Source: $source_image"
+            echo "   Target: $full_target"
+            
+            # 步骤 B: 执行同步
+            # --override-os/arch: 强制只同步 amd64，解决阿里云 Blob 复用报错
+            # --all: 复制所有关联数据
+            skopeo copy --override-os linux --override-arch amd64 --all \
+              $SRC_CREDS $DEST_CREDS \
+              "docker://$source_image" \
+              "$full_target"
+              
+            echo "🎉 [DONE] Sync completed."
+          fi
+        }
+
+        # ==================================================
+        # 4. 执行同步清单 (包含所有依赖)
+        # ==================================================
+
+        # --- 工具类 ---
+        sync_image "gcr.io/kaniko-project/executor:v1.13.0" "kaniko-executor" "v1.13.0"
+
+        # --- 基础依赖 (Bitnami Legacy) ---
+        # 注意：这里使用了你提供的最新 r9/r4/r5 版本
+        sync_image "docker.io/bitnamilegacy/postgresql:16.4.0-debian-12-r9" "postgresql" "16.4.0-debian-12-r9"
+        sync_image "docker.io/bitnamilegacy/redis:7.4.0-debian-12-r4"       "redis"      "7.4.0-debian-12-r4"
+        sync_image "docker.io/bitnamilegacy/rabbitmq:3.13.7-debian-12-r5"   "rabbitmq"   "3.13.7-debian-12-r5"
+
+        # --- Polyaxon 核心组件 (2.11.1) ---
+        sync_image "docker.io/polyaxon/polyaxon-api:2.11.1"             "polyaxon-api"             "2.11.1"
+        sync_image "docker.io/polyaxon/polyaxon-gateway:2.11.1"         "polyaxon-gateway"         "2.11.1"
+        sync_image "docker.io/polyaxon/polyaxon-streams:2.11.1"         "polyaxon-streams"         "2.11.1"
+        sync_image "docker.io/polyaxon/polyaxon-operator:2.11.1"        "polyaxon-operator"        "2.11.1"
+        sync_image "docker.io/polyaxon/polyaxon-agent:2.11.1"           "polyaxon-agent"           "2.11.1"
+        sync_image "docker.io/polyaxon/polyaxon-init:2.11.1"            "polyaxon-init"            "2.11.1"
+        sync_image "docker.io/polyaxon/polyaxon-sidecar:2.11.1"         "polyaxon-sidecar"         "2.11.1"
+        sync_image "docker.io/polyaxon/polyaxon-cli:2.11.1"             "polyaxon-cli"             "2.11.1"
+        sync_image "docker.io/polyaxon/polyaxon-hpsearch:2.11.1"        "polyaxon-hpsearch"        "2.11.1"
+        sync_image "docker.io/polyaxon/polyaxon-events-handlers:2.11.1" "polyaxon-events-handlers" "2.11.1"
+        sync_image "docker.io/polyaxon/polyaxon-scheduler:2.11.1"       "polyaxon-scheduler"       "2.11.1"
+
+        # --- Ingress Nginx 组件 ---
+        sync_image "registry.k8s.io/ingress-nginx/controller:v1.10.1"         "controller"           "v1.10.1"
+        sync_image "registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.1" "kube-webhook-certgen" "v1.4.1"
