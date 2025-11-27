@@ -35,12 +35,11 @@ jobs:
         registry: crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com
         username: ${{ secrets.ALIYUN_USERNAME }}
         password: ${{ secrets.ALIYUN_PASSWORD }}
-        logout: false
+        logout: false 
         
     - name: Use Skopeo Tools Sync Image to ALIYUN-ACR
       run: |
         #!/usr/bin/env bash
-        skopeo copy docker://gcr.io/kaniko-project/executor:v1.13.0 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/kaniko-executor:v1.13.0
         skopeo copy docker://docker.io/bitnamilegacy/postgresql:16.4.0-debian-12-r9 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/postgresql:16.4.0-debian-12-r9
         skopeo copy docker://docker.io/bitnamilegacy/redis:7.4.0-debian-12-r4 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/redis:7.4.0-debian-12-r4
         skopeo copy docker://docker.io/bitnamilegacy/rabbitmq:3.13.7-debian-12-r5 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/k8s_mirror_hong/rabbitmq:3.13.7-debian-12-r5
