@@ -20,33 +20,27 @@ jobs:
     - name: Checkout Repos
       uses: actions/checkout@v3
 
-    # # 1. 登录 Docker Hub (关键！解决拉取报错)
-    # - name: Login to Docker Hub
-    #   uses: docker/login-action@v3
-    #   with:
-    #     registry: docker.io
-    #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-    #     password: ${{ secrets.DOCKERHUB_TOKEN }}
-    #     logout: false
+    # 1. 登录 Docker Hub (关键！解决拉取报错)
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        registry: docker.io
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        logout: false
 
-    # - name: Login to ALIYUN-ACR
-    #   uses: docker/login-action@v3
-    #   with:
-    #     registry: crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com
-    #     username: ${{ secrets.ALIYUN_USERNAME }}
-    #     password: ${{ secrets.ALIYUN_PASSWORD }}
-    #     logout: false 
+    - name: Login to ALIYUN-ACR
+      uses: docker/login-action@v3
+      with:
+        registry: crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com
+        username: ${{ secrets.ALIYUN_USERNAME }}
+        password: ${{ secrets.ALIYUN_PASSWORD }}
+        logout: false 
         
     - name: Use Skopeo Tools Sync Image to ALIYUN-ACR
       run: |
         #!/usr/bin/env bash
         set -e
-
-        # 1. 定义凭证
-        # 源端 (Docker Hub) 需要登录以避免限流
-        SRC_CREDS="--src-username ${{ secrets.DOCKERHUB_USERNAME }} --src-password ${{ secrets.DOCKERHUB_TOKEN }}"
-        # 目标端 (阿里云) 需要登录以推送
-        DEST_CREDS="--dest-username ${{ secrets.ALIYUN_USERNAME }} --dest-password ${{ secrets.ALIYUN_PASSWORD }}"
         
         # 2. 定义目标仓库前缀 (你的新命名空间)
         TARGET_REGISTRY="docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s"
@@ -65,7 +59,7 @@ jobs:
           
           # 步骤 A: 检查阿里云是否已存在该镜像
           # 使用 $DEST_CREDS 凭证访问私有仓库
-          if skopeo inspect $DEST_CREDS "$full_target" > /dev/null 2>&1; then
+          if skopeo inspect "$full_target" > /dev/null 2>&1; then
             echo "✅ [SKIP] Image already exists, skipping."
           else
             echo "🚀 [SYNC] Image not found, starting copy..."
@@ -76,7 +70,6 @@ jobs:
             # --override-os/arch: 强制只同步 amd64，解决阿里云 Blob 复用报错
             # --all: 复制所有关联数据
             skopeo copy --override-os linux --override-arch amd64 --all \
-              $SRC_CREDS $DEST_CREDS \
               "docker://$source_image" \
               "$full_target"
               
