@@ -40,19 +40,20 @@ jobs:
     - name: Use Skopeo Tools Sync Image to ALIYUN-ACR
       run: |
         #!/usr/bin/env bash
-        skopeo copy docker://docker.io/bitnamilegacy/postgresql:16.4.0-debian-12-r9 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/postgresql:16.4.0-debian-12-r9
-        skopeo copy docker://docker.io/bitnamilegacy/redis:7.4.0-debian-12-r4 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/redis:7.4.0-debian-12-r4
-        skopeo copy docker://docker.io/bitnamilegacy/rabbitmq:3.13.7-debian-12-r5 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/rabbitmq:3.13.7-debian-12-r5
-        skopeo copy docker://docker.io/polyaxon/polyaxon-api:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-api:2.11.1
-        skopeo copy docker://docker.io/polyaxon/polyaxon-gateway:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-gateway:2.11.1
-        skopeo copy docker://docker.io/polyaxon/polyaxon-streams:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-streams:2.11.1
-        skopeo copy docker://docker.io/polyaxon/polyaxon-operator:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-operator:2.11.1
-        skopeo copy docker://docker.io/polyaxon/polyaxon-agent:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-agent:2.11.1
-        skopeo copy docker://docker.io/polyaxon/polyaxon-init:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-init:2.11.1
-        skopeo copy docker://docker.io/polyaxon/polyaxon-sidecar:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-sidecar:2.11.1
-        skopeo copy docker://docker.io/polyaxon/polyaxon-cli:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-cli:2.11.1
-        skopeo copy docker://docker.io/polyaxon/polyaxon-hpsearch:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-hpsearch:2.11.1
-        skopeo copy docker://docker.io/polyaxon/polyaxon-events-handlers:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-events-handlers:2.11.1
-        skopeo copy docker://docker.io/polyaxon/polyaxon-scheduler:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-scheduler:2.11.1
-        skopeo copy docker://registry.k8s.io/ingress-nginx/controller:v1.10.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/controller:v1.10.1
-        skopeo copy docker://registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/kube-webhook-certgen:v1.4.1
+        ARGS="--override-os linux --override-arch amd64 --all"
+        skopeo copy $ARGS docker://docker.io/bitnamilegacy/postgresql:16.4.0-debian-12-r9 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/postgresql:16.4.0-debian-12-r9
+        skopeo copy $ARGS docker://docker.io/bitnamilegacy/redis:7.4.0-debian-12-r4 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/redis:7.4.0-debian-12-r4
+        skopeo copy $ARGS docker://docker.io/bitnamilegacy/rabbitmq:3.13.7-debian-12-r5 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/rabbitmq:3.13.7-debian-12-r5
+        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-api:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-api:2.11.1
+        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-gateway:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-gateway:2.11.1
+        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-streams:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-streams:2.11.1
+        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-operator:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-operator:2.11.1
+        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-agent:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-agent:2.11.1
+        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-init:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-init:2.11.1
+        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-sidecar:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-sidecar:2.11.1
+        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-cli:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-cli:2.11.1
+        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-hpsearch:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-hpsearch:2.11.1
+        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-events-handlers:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-events-handlers:2.11.1
+        skopeo copy $ARGS docker://docker.io/polyaxon/polyaxon-scheduler:2.11.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/polyaxon-scheduler:2.11.1
+        skopeo copy $ARGS docker://registry.k8s.io/ingress-nginx/controller:v1.10.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/controller:v1.10.1
+        skopeo copy $ARGS docker://registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.1 docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s/kube-webhook-certgen:v1.4.1
