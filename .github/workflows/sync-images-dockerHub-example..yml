@@ -90,18 +90,18 @@ jobs:
         sync_image "docker.io/bitnamilegacy/redis:7.4.0-debian-12-r4"       "redis"      "7.4.0-debian-12-r4"
         sync_image "docker.io/bitnamilegacy/rabbitmq:3.13.7-debian-12-r5"   "rabbitmq"   "3.13.7-debian-12-r5"
 
-        # --- Polyaxon 核心组件 (2.11.1) ---
-        sync_image "docker.io/polyaxon/polyaxon-api:2.11.1"             "polyaxon-api"             "2.11.1"
-        sync_image "docker.io/polyaxon/polyaxon-gateway:2.11.1"         "polyaxon-gateway"         "2.11.1"
-        sync_image "docker.io/polyaxon/polyaxon-streams:2.11.1"         "polyaxon-streams"         "2.11.1"
-        sync_image "docker.io/polyaxon/polyaxon-operator:2.11.1"        "polyaxon-operator"        "2.11.1"
-        sync_image "docker.io/polyaxon/polyaxon-agent:2.11.1"           "polyaxon-agent"           "2.11.1"
-        sync_image "docker.io/polyaxon/polyaxon-init:2.11.1"            "polyaxon-init"            "2.11.1"
-        sync_image "docker.io/polyaxon/polyaxon-sidecar:2.11.1"         "polyaxon-sidecar"         "2.11.1"
-        sync_image "docker.io/polyaxon/polyaxon-cli:2.11.1"             "polyaxon-cli"             "2.11.1"
-        sync_image "docker.io/polyaxon/polyaxon-hpsearch:2.11.1"        "polyaxon-hpsearch"        "2.11.1"
-        sync_image "docker.io/polyaxon/polyaxon-events-handlers:2.11.1" "polyaxon-events-handlers" "2.11.1"
-        sync_image "docker.io/polyaxon/polyaxon-scheduler:2.11.1"       "polyaxon-scheduler"       "2.11.1"
+        # --- Polyaxon 核心组件 (2.12.0-rc5) ---
+        sync_image "docker.io/polyaxon/polyaxon-api:2.12.0-rc5"             "polyaxon-api"             "2.12.0-rc5"
+        sync_image "docker.io/polyaxon/polyaxon-gateway:2.12.0-rc5"         "polyaxon-gateway"         "2.12.0-rc5"
+        sync_image "docker.io/polyaxon/polyaxon-streams:2.12.0-rc5"         "polyaxon-streams"         "2.12.0-rc5"
+        sync_image "docker.io/polyaxon/polyaxon-operator:2.12.0-rc5"        "polyaxon-operator"        "2.12.0-rc5"
+        sync_image "docker.io/polyaxon/polyaxon-agent:2.12.0-rc5"           "polyaxon-agent"           "2.12.0-rc5"
+        sync_image "docker.io/polyaxon/polyaxon-init:2.12.0-rc5"            "polyaxon-init"            "2.12.0-rc5"
+        sync_image "docker.io/polyaxon/polyaxon-sidecar:2.12.0-rc5"         "polyaxon-sidecar"         "2.12.0-rc5"
+        sync_image "docker.io/polyaxon/polyaxon-cli:2.12.0-rc5"             "polyaxon-cli"             "2.12.0-rc5"
+        sync_image "docker.io/polyaxon/polyaxon-hpsearch:2.12.0-rc5"        "polyaxon-hpsearch"        "2.12.0-rc5"
+        sync_image "docker.io/polyaxon/polyaxon-events-handlers:2.12.0-rc5" "polyaxon-events-handlers" "2.12.0-rc5"
+        sync_image "docker.io/polyaxon/polyaxon-scheduler:2.12.0-rc5"       "polyaxon-scheduler"       "2.12.0-rc5"
 
         # --- Ingress Nginx 组件 ---
         sync_image "registry.k8s.io/ingress-nginx/controller:v1.10.1"         "controller"           "v1.10.1"
