@@ -115,4 +115,4 @@ jobs:
         sync_image "docker.io/mellanox/k8s-rdma-shared-dev-plugin:v1.3.2" "k8s-rdma-shared-dev-plugin" "v1.3.2"
 
         # --- kubeflow 组件 ---
-        sync_image "docker.io/kubeflow/training-operator:v1-5525468" "training-operator" "v1-5525468"
+        sync_image "docker.io/kubeflow/training-operator:v1-c77ee3f" "training-operator" "v1-c77ee3f"
