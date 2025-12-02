@@ -119,3 +119,6 @@ jobs:
 
         # --- nvidia 组件 ---
         sync_image "nvcr.io/nvidia/k8s-device-plugin:v0.18.0" "k8s-device-plugin" "v0.18.0"
+
+        # --- kubernetes ---
+        sync_image "registry.k8s.io/pause:3.10" "pause" "3.10"
