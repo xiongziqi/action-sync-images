@@ -116,3 +116,6 @@ jobs:
 
         # --- kubeflow 组件 ---
         sync_image "docker.io/kubeflow/training-operator:v1-04f9f13" "training-operator" "v1-04f9f13"
+
+        # --- nvidia 组件 ---
+        sync_image "nvcr.io/nvidia/k8s-device-plugin:v0.18.0" "k8s-device-plugin" "v0.18.0"
