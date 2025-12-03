@@ -129,5 +129,4 @@ jobs:
         # --- Volcano 镜像 ---
         sync_image "docker.io/volcanosh/vc-controller-manager:v1.9.1" "vc-controller-manager" "v1.9.1"
         sync_image "docker.io/volcanosh/vc-scheduler:v1.9.1" "vc-scheduler" "v1.9.1"
-        sync_image "docker.io/volcanosh/vc-admission:v1.9.1" "vc-admission" "v1.9.1"
         sync_image "docker.io/volcanosh/vc-webhook-manager:v1.9.1" "vc-webhook-manager" "v1.9.1"
