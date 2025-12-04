@@ -131,3 +131,8 @@ jobs:
         sync_image "docker.io/volcanosh/vc-controller-manager:v1.9.1" "vc-controller-manager" "v1.9.1"
         sync_image "docker.io/volcanosh/vc-scheduler:v1.9.1" "vc-scheduler" "v1.9.1"
         sync_image "docker.io/volcanosh/vc-webhook-manager:v1.9.1" "vc-webhook-manager" "v1.9.1"
+
+        # --- longhorn 镜像 ---
+        sync_image "docker.io/longhornio/longhorn-manager:v1.10.0" "longhorn-manager" "v1.10.0"
+        sync_image "docker.io/longhornio/longhorn-share-manager:v1.10.0" "longhorn-share-manager" "v1.10.0"
+        sync_image "docker.io/longhornio/longhorn-ui:v1.10.0" "longhorn-ui" "v1.10.0"
