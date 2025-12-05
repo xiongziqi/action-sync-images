@@ -80,6 +80,8 @@ jobs:
         # ==================================================
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
+        # --- verl 镜像 ---
+        sync_image "docker.io/verlai/verl:vllm011.latest" "verl" "vllm011.latest"
 
         # --- longhorn 镜像 ---
         sync_image "docker.io/longhornio/livenessprobe:v2.16.0-20250826" "livenessprobe" "v2.16.0-20250826"
