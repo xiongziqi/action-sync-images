@@ -138,7 +138,7 @@ jobs:
         sync_image "docker.io/longhornio/longhorn-ui:v1.10.0" "longhorn-ui" "v1.10.0"
         sync_image "docker.io/longhornio/longhorn-engine:v1.10.0" "longhorn-engine" "v1.10.0"
         sync_image "docker.io/longhornio/longhorn-instance-manager:v1.10.0" "longhorn-instance-manager" "v1.10.0"
-        sync_image "docker.io/longhornio/longhorn-backing-image-manager:v1.10.0" "longhorn-backing-image-manager" "v1.10.0"
+        sync_image "docker.io/longhornio/backing-image-manager:v1.10.0" "backing-image-manager" "v1.10.0"
         sync_image "docker.io/longhornio/csi-attacher:v4.9.0-20250826" "csi-attacher" "v4.9.0-20250826"
         sync_image "docker.io/longhornio/csi-provisioner:v5.3.0-20250826" "csi-provisioner" "v5.3.0-20250826"
         sync_image "docker.io/longhornio/csi-node-driver-registrar:v2.14.0-20250826" "csi-node-driver-registrar" "v2.14.0-20250826"
