@@ -80,6 +80,8 @@ jobs:
         # ==================================================
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
+        # multus cni 镜像
+        sync_image "ghcr.io/k8snetworkplumbingwg/multus-cni" "multus-cni" "snapshot-thick"
         # --- verl 镜像 ---
         sync_image "docker.io/verlai/verl:vllm011.latest" "verl" "vllm011.latest"
 
