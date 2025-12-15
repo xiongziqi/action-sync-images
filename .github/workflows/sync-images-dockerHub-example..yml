@@ -80,6 +80,10 @@ jobs:
         # ==================================================
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
+
+        # mysql 镜像
+        sync_image "docker.io/library/mysql:8.0.32" "mysql" "8.0.32"
+
         # multus cni 镜像
         sync_image "ghcr.io/mellanox/ipoib-cni:v1.2.2" "ipoib-cni" "v1.2.2"
         sync_image "ghcr.io/k8snetworkplumbingwg/whereabouts:v0.9.2" "whereabouts" "v0.9.2"
