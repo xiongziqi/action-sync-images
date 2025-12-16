@@ -81,6 +81,10 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
+        # --- prometheus 组件 ---
+        sync_image "docker.io/prom/prometheus:v2.45.0" "prometheus" "v2.45.0"
+        sync_image "docker.io/grafana/grafana:10.0.3" "grafana" "10.0.3"
+
         # --- nvidia 组件 ---
         sync_image "nvcr.io/nvidia/k8s/dcgm-exporter:3.3.5-3.4.1-ubuntu22.04" "dcgm-exporter" "3.3.5-3.4.1-ubuntu22.04"
         sync_image "nvcr.io/nvidia/k8s-device-plugin:v0.18.0" "k8s-device-plugin" "v0.18.0"
