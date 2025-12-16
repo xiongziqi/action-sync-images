@@ -81,6 +81,11 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
+        # --- nvidia 组件 ---
+        sync_image "nvcr.io/nvidia/k8s/dcgm-exporter:3.3.5-3.4.1-ubuntu22.04" "dcgm-exporter" "3.3.5-3.4.1-ubuntu22.04"
+        sync_image "nvcr.io/nvidia/k8s-device-plugin:v0.18.0" "k8s-device-plugin" "v0.18.0"
+        sync_image "nvcr.io/nvidia/pytorch:25.01-py3" "pytorch" "25.01-py3"
+
         # mysql 镜像
         sync_image "docker.io/library/mysql:8.0.32" "mysql" "8.0.32"
 
@@ -141,10 +146,6 @@ jobs:
 
         # --- kubeflow 组件 ---
         sync_image "docker.io/kubeflow/training-operator:v1-04f9f13" "training-operator" "v1-04f9f13"
-
-        # --- nvidia 组件 ---
-        sync_image "nvcr.io/nvidia/k8s-device-plugin:v0.18.0" "k8s-device-plugin" "v0.18.0"
-        sync_image "nvcr.io/nvidia/pytorch:25.01-py3" "pytorch" "25.01-py3"
 
         # --- kubernetes ---
         sync_image "registry.k8s.io/pause:3.10" "pause" "3.10"
