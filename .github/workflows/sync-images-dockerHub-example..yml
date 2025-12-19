@@ -83,6 +83,7 @@ jobs:
 
         # --- ray 组件 ---
         sync_image "docker.io/rayproject/ray:2.52.1-py311-gpu" "ray" "2.52.1-py311-gpu"
+        sync_image "docker.io/rayproject/ray:2.52.1-py311-cu128" "ray" "2.52.1-py311-cu128"
 
         # --- prometheus 组件 ---
         sync_image "docker.io/prom/prometheus:v2.45.0" "prometheus" "v2.45.0"
