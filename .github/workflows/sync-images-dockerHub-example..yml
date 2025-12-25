@@ -82,6 +82,7 @@ jobs:
         # ==================================================
 
         # --- rancher 组件 ---
+        sync_image "docker.io/rancher/rancher-agent:v2.10-head" "rancher-agent" "v2.10-head"
         sync_image "docker.io/rancher/rancher:v2.10-head" "rancher" "v2.10-head"
 
         # --- ray 组件 ---
