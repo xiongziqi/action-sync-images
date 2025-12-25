@@ -82,7 +82,7 @@ jobs:
         # ==================================================
 
         # --- rancher 组件 ---
-        sync_image "docker.io/rancher/rancher:v2.10.10" "rancher" "v2.10.10"
+        sync_image "docker.io/rancher/rancher:v2.10-head" "rancher" "v2.10-head"
 
         # --- ray 组件 ---
         sync_image "quay.io/kuberay/operator:v1.5.0" "kuberay-operator" "v1.5.0"
