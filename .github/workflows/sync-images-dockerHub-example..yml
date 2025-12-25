@@ -81,6 +81,9 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
+        # --- rancher 组件 ---
+        sync_image "docker.io/rancher/rancher:v2.10.10" "rancher" "v2.10.10"
+
         # --- ray 组件 ---
         sync_image "quay.io/kuberay/operator:v1.5.0" "kuberay-operator" "v1.5.0"
         sync_image "docker.io/rayproject/ray-llm:2.52.1-py311-cu128" "ray-llm" "2.52.1-py311-cu128"
