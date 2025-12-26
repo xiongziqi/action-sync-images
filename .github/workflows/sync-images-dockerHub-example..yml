@@ -82,6 +82,15 @@ jobs:
         # ==================================================
 
         # --- rancher 组件 ---
+        sync_image "docker.io/rancher/mirrored-prometheus-alertmanager:v0.27.0" "mirrored-prometheus-alertmanager" "v0.27.0"
+        sync_image "docker.io/rancher/kuberlr-kubectl:v3.0.1 "kuberlr-kubectl" "v3.0.1"
+        sync_image "docker.io/rancher/mirrored-library-nginx:1.27.2-alpine" "mirrored-library-nginx" "1.27.2-alpine"
+        sync_image "docker.io/rancher/prom-prometheus:v2.55.1" "prom-prometheus" "v2.55.1"
+        sync_image "docker.io/rancher/mirrored-prometheus-operator-admission-webhook:v0.79.0" "mirrored-prometheus-operator-admission-webhook" "v0.79.0"
+        sync_image "docker.io/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.5.0" "mirrored-ingress-nginx-kube-webhook-certgen" "v1.5.0"
+        sync_image "docker.io/rancher/mirrored-prometheus-operator-prometheus-operator:v0.79.0" "mirrored-prometheus-operator-prometheus-operator" "v0.79.0"
+        sync_image "docker.io/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.79.0" "mirrored-prometheus-operator-prometheus-config-reloader" "v0.79.0"
+        sync_image "docker.io/rancher/mirrored-thanos-thanos:v0.37.2" "mirrored-thanos-thanos" "v0.37.2"
         sync_image "docker.io/rancher/rancher-webhook:v0.6.5-rc.3" "rancher-webhook" "v0.6.5-rc.3"
         sync_image "docker.io/rancher/shell:v0.3.1" "shell" "v0.3.1"
         sync_image "docker.io/rancher/mirrored-pause:3.6" "mirrored-pause" "3.6"
