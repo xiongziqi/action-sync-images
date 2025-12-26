@@ -82,6 +82,7 @@ jobs:
         # ==================================================
 
         # --- rancher 组件 ---
+        sync_image "docker.io/rancher/shell:v0.3.1" "shell" "v0.3.1"
         sync_image "docker.io/rancher/mirrored-pause:3.6" "mirrored-pause" "3.6"
         sync_image "docker.io/rancher/rancher-agent:v2.10-head" "rancher-agent" "v2.10-head"
         sync_image "docker.io/rancher/rancher:v2.10-head" "rancher" "v2.10-head"
