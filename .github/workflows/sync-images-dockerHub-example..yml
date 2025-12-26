@@ -82,9 +82,12 @@ jobs:
         # ==================================================
 
         # --- rancher 组件 ---
+        sync_image "docker.io/rancher/mirrored-grafana-grafana:11.4.5" "mirrored-grafana-grafana" "11.4.5"
+
         sync_image "docker.io/rancher/mirrored-kiwigrid-k8s-sidecar:1.28.0" "mirrored-kiwigrid-k8s-sidecar" "1.28.0"
         sync_image "docker.io/rancher/mirrored-kube-state-metrics-kube-state-metrics:v2.14.0" "mirrored-kube-state-metrics-kube-state-metrics" "v2.14.0"
         sync_image "docker.io/rancher/mirrored-prometheus-node-exporter:v1.8.2" "mirrored-prometheus-node-exporter" "v1.8.2"
+        
         sync_image "docker.io/rancher/mirrored-prometheus-alertmanager:v0.27.0" "mirrored-prometheus-alertmanager" "v0.27.0"
         sync_image "docker.io/rancher/kuberlr-kubectl:v3.0.1" "kuberlr-kubectl" "v3.0.1"
         sync_image "docker.io/rancher/mirrored-library-nginx:1.27.2-alpine" "mirrored-library-nginx" "1.27.2-alpine"
