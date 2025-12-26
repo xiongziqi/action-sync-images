@@ -83,7 +83,7 @@ jobs:
 
         # --- rancher 组件 ---
         sync_image "docker.io/rancher/mirrored-prometheus-alertmanager:v0.27.0" "mirrored-prometheus-alertmanager" "v0.27.0"
-        sync_image "docker.io/rancher/kuberlr-kubectl:v3.0.1 "kuberlr-kubectl" "v3.0.1"
+        sync_image "docker.io/rancher/kuberlr-kubectl:v3.0.1" "kuberlr-kubectl" "v3.0.1"
         sync_image "docker.io/rancher/mirrored-library-nginx:1.27.2-alpine" "mirrored-library-nginx" "1.27.2-alpine"
         sync_image "docker.io/rancher/prom-prometheus:v2.55.1" "prom-prometheus" "v2.55.1"
         sync_image "docker.io/rancher/mirrored-prometheus-operator-admission-webhook:v0.79.0" "mirrored-prometheus-operator-admission-webhook" "v0.79.0"
