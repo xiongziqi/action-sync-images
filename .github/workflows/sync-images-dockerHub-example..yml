@@ -82,6 +82,7 @@ jobs:
         # ==================================================
 
         # --- rancher 组件 ---
+        sync_image "docker.io/rancher/rancher-webhook:v0.6.5" "rancher-webhook" "v0.6.5"
         sync_image "docker.io/rancher/mirrored-prometheus-adapter-prometheus-adapter:v0.12.0" "mirrored-prometheus-adapter-prometheus-adapter" "v0.12.0"
         sync_image "docker.io/rancher/mirrored-grafana-grafana:11.4.5" "mirrored-grafana-grafana" "11.4.5"
 
