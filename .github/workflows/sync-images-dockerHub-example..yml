@@ -29,6 +29,15 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         logout: false
 
+    # 2. 登录 nvidia Hub (关键！解决拉取报错)
+    - name: Login to nvidia Hub
+      uses: docker/login-action@v3
+      with:
+        registry: docker.io
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        logout: false
+
     - name: Login to ALIYUN-ACR
       uses: docker/login-action@v3
       with:
@@ -82,13 +91,14 @@ jobs:
         # ==================================================
 
         # --- nvidia ib 镜像 ---
-        sync_image "ghcr.io/mellanox/network-operator:v25.10.0" "network-operator" "v25.10.0"
-        sync_image "ghcr.io/k8snetworkplumbingwg/multus-cni:v4.2.3" "multus-cni" "v4.2.3"
-        sync_image "ghcr.io/k8snetworkplumbingwg/whereabouts:v0.8.1" "whereabouts" "v0.8.1"
-        sync_image "ghcr.io/mellanox/k8s-rdma-shared-dev-plugin:v1.6.0" "k8s-rdma-shared-dev-plugin" "v1.6.0"
-        sync_image "ghcr.io/mellanox/container-networking-plugins:v0.10.0" "container-networking-plugins" "v0.10.0"
+        # sync_image "ghcr.io/mellanox/network-operator:v25.10.0" "network-operator" "v25.10.0"
+        # sync_image "ghcr.io/k8snetworkplumbingwg/multus-cni:v4.2.3" "multus-cni" "v4.2.3"
+        # sync_image "ghcr.io/k8snetworkplumbingwg/whereabouts:v0.8.1" "whereabouts" "v0.8.1"
+        # sync_image "ghcr.io/mellanox/k8s-rdma-shared-dev-plugin:v1.6.0" "k8s-rdma-shared-dev-plugin" "v1.6.0"
+        # sync_image "ghcr.io/mellanox/container-networking-plugins:v0.10.0" "container-networking-plugins" "v0.10.0"
 
         # --- rancher longhorn镜像 ---
+        sync_image "docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.9.1" "mirrored-longhornio-longhorn-manager" "v1.9.1"
         sync_image "docker.io/rancher/mirrored-longhornio-csi-attacher:v4.9.0-20250709" "mirrored-longhornio-csi-attacher" "v4.9.0-20250709"
         sync_image "docker.io/rancher/mirrored-longhornio-livenessprobe:v2.16.0-20250709" "mirrored-longhornio-livenessprobe" "v2.16.0-20250709"
         sync_image "docker.io/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.14.0-20250709" "mirrored-longhornio-csi-node-driver-registrar" "v2.14.0-20250709"
