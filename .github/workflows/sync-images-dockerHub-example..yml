@@ -82,11 +82,11 @@ jobs:
         # ==================================================
 
         # --- nvidia ib 镜像 ---
-        sync_image "ghcr.io/mellanox/network-operator" "network-operator" "latest"
-        sync_image "ghcr.io/mellanox/multus-cni" "multus-cni" "latest"
-        sync_image "ghcr.io/mellanox/whereabouts" "whereabouts" "latest"
-        sync_image "ghcr.io/mellanox/k8s-rdma-shared-dev-plugin" "k8s-rdma-shared-dev-plugin" "latest"
-        sync_image "ghcr.io/mellanox/container-networking-plugins" "container-networking-plugins" "latest"
+        sync_image "ghcr.io/mellanox/network-operator:v25.10.0" "network-operator" "v25.10.0"
+        sync_image "ghcr.io/k8snetworkplumbingwg/multus-cni:v4.2.3" "multus-cni" "v4.2.3"
+        sync_image "ghcr.io/k8snetworkplumbingwg/whereabouts:v0.8.1" "whereabouts" "v0.8.1"
+        sync_image "ghcr.io/mellanox/k8s-rdma-shared-dev-plugin:v1.6.0" "k8s-rdma-shared-dev-plugin" "v1.6.0"
+        sync_image "ghcr.io/mellanox/container-networking-plugins:v0.10.0" "container-networking-plugins" "v0.10.0"
 
         # --- rancher longhorn镜像 ---
         sync_image "docker.io/rancher/mirrored-longhornio-csi-attacher:v4.9.0-20250709" "mirrored-longhornio-csi-attacher" "v4.9.0-20250709"
