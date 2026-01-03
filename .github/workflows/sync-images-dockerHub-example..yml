@@ -89,7 +89,7 @@ jobs:
         sync_image "docker.io/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20250709" "mirrored-longhornio-csi-resizer" "v1.14.0-20250709"
         sync_image "docker.io/rancher/mirrored-longhornio-csi-snapshotter:v8.3.0-20250709" "mirrored-longhornio-csi-snapshotter" "v8.3.0-20250709"
         sync_image "docker.io/rancher/mirrored-longhornio-backing-image-manager:v1.9.1" "mirrored-longhornio-backing-image-manager" "v1.9.1"
-        sync_image "docker.io/rancher/mirrored-longhornio-longhorn-longhorn-engine:v1.9.1" "mirrored-longhornio-longhorn-engine" "v1.9.1"
+        sync_image "docker.io/rancher/mirrored-longhornio-longhorn-engine:v1.9.1" "mirrored-longhornio-longhorn-engine" "v1.9.1"
         sync_image "docker.io/rancher/mirrored-longhornio-longhorn-instance-manager:v1.9.1" "mirrored-longhornio-longhorn-instance-manager" "v1.9.1"
         sync_image "docker.io/rancher/mirrored-longhornio-longhorn-share-manager:v1.9.1" "mirrored-longhornio-longhorn-share-manager" "v1.9.1"
         sync_image "docker.io/rancher/mirrored-longhornio-longhorn-support-bundle-kit:v0.0.61" "mirrored-longhornio-support-bundle-kit" "v0.0.61"
