@@ -81,6 +81,10 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
+        # --- 基础镜像 ---
+        sync_image "docker.io/mher/flower:latest" "flower" "latest"
+        sync_image "docker.io/prom/statsd-exporter:v0.10.5" "statsd-exporter" "v0.10.5"
+
         # --- rancher 组件 ---
         sync_image "docker.io/rancher/rancher-webhook:v0.6.5" "rancher-webhook" "v0.6.5"
         sync_image "docker.io/rancher/mirrored-prometheus-adapter-prometheus-adapter:v0.12.0" "mirrored-prometheus-adapter-prometheus-adapter" "v0.12.0"
