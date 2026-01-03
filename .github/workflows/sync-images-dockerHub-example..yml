@@ -81,6 +81,13 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
+        # --- nvidia ib 镜像 ---
+        sync_image "ghcr.io/mellanox/network-operator" "network-operator" "latest"
+        sync_image "ghcr.io/mellanox/multus-cni" "multus-cni" "latest"
+        sync_image "ghcr.io/mellanox/whereabouts" "whereabouts" "latest"
+        sync_image "ghcr.io/mellanox/k8s-rdma-shared-dev-plugin" "k8s-rdma-shared-dev-plugin" "latest"
+        sync_image "ghcr.io/mellanox/container-networking-plugins" "container-networking-plugins" "latest"
+
         # --- rancher longhorn镜像 ---
         sync_image "docker.io/rancher/mirrored-longhornio-csi-attacher:v4.9.0-20250709" "mirrored-longhornio-csi-attacher" "v4.9.0-20250709"
         sync_image "docker.io/rancher/mirrored-longhornio-livenessprobe:v2.16.0-20250709" "mirrored-longhornio-livenessprobe" "v2.16.0-20250709"
@@ -136,6 +143,7 @@ jobs:
         sync_image "docker.io/grafana/grafana:10.0.3" "grafana" "10.0.3"
 
         # --- nvidia 组件 ---
+
         sync_image "nvcr.io/nvidia/k8s/dcgm-exporter:3.3.5-3.4.1-ubuntu22.04" "dcgm-exporter" "3.3.5-3.4.1-ubuntu22.04"
         sync_image "nvcr.io/nvidia/k8s-device-plugin:v0.18.0" "k8s-device-plugin" "v0.18.0"
         sync_image "nvcr.io/nvidia/pytorch:25.01-py3" "pytorch" "25.01-py3"
