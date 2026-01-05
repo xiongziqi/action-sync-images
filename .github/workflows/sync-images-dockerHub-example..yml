@@ -81,6 +81,9 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
+        # --- custom images ---
+        sync_image "docker.io/curlimages/curl:8.17.0" "curl" "8.17.0"
+
         # --- rancher 组件 ---
         sync_image "docker.io/rancher/rancher-webhook:v0.6.5" "rancher-webhook" "v0.6.5"
         sync_image "docker.io/rancher/mirrored-prometheus-adapter-prometheus-adapter:v0.12.0" "mirrored-prometheus-adapter-prometheus-adapter" "v0.12.0"
