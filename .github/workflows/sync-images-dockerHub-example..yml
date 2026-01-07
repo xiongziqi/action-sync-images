@@ -90,6 +90,8 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
+        # --- open webui ---
+        sync_image "ghcr.io/open-webui/open-webui:main" "open-webui" "main"
         # --- one api ---
         sync_image "docker.io/justsong/one-api:v0.6.11-preview.7" "one-api" "v0.6.11-preview.7"
 
