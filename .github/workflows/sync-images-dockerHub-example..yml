@@ -90,6 +90,9 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
+        # --- one api ---
+        sync_image "docker.io/justsong/one-api:v0.6.11-preview.7" "oneapi" "v0.6.11-preview.7"
+
         # --- custom images ---
         sync_image "docker.io/curlimages/curl:8.17.0" "curl" "8.17.0"
 
