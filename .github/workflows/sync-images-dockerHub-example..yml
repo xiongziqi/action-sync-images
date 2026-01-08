@@ -90,7 +90,15 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
+        # --- cert-manager ---
+        sync_image "quay.io/jetstack/cert-manager-controller:v1.19.2" "cert-manager-controller" "v1.19.2"
+        sync_image "quay.io/jetstack/cert-manager-cainjector:v1.19.2" "cert-manager-cainjector" "v1.19.2"
+        sync_image "quay.io/jetstack/cert-manager-startupapicheck:v1.19.2" "cert-manager-startupapicheck" "v1.19.2"
+        sync_image "quay.io/jetstack/cert-manager-webhook:v1.19.2" "cert-manager-webhook" "v1.19.2"
+
         # --- nvidia ib 镜像 ---
+        sync_image "nvcr.io/nvidia/mellanox/network-operator-init-container:network-operator-v25.10.0" "network-operator-init-container" "network-operator-v25.10.0"
+        sync_image "nvcr.io/nvidia/mellanox/node-feature-discovery:network-operator-v25.10.0" "node-feature-discovery" "network-operator-v25.10.0"
         sync_image "nvcr.io/nvidia/mellanox/maintenance-operator:network-operator-v25.10.0" "maintenance-operator" "network-operator-v25.10.0"
         sync_image "nvcr.io/nvidia/cloud-native/network-operator:v25.10.0" "network-operator" "v25.10.0"
         sync_image "nvcr.io/nvidia/cloud-native/k8s-rdma-shared-dev-plugin:v1.5.2" "k8s-rdma-shared-dev-plugin" "v1.5.2"
