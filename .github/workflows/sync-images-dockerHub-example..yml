@@ -91,7 +91,9 @@ jobs:
         # ==================================================
 
         # --- nvidia ib 镜像 ---
+        sync_image "nvcr.io/nvidia/mellanox/maintenance-operator:network-operator-v25.10.0" "maintenance-operator" "network-operator-v25.10.0"
         sync_image "nvcr.io/nvidia/cloud-native/network-operator:v25.10.0" "network-operator" "v25.10.0"
+        sync_image "nvcr.io/nvidia/cloud-native/k8s-rdma-shared-dev-plugin:v1.5.2" "k8s-rdma-shared-dev-plugin" "v1.5.2"
 
         # --- open webui ---
         sync_image "ghcr.io/open-webui/open-webui:main" "open-webui" "main"
