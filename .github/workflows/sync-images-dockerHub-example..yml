@@ -97,8 +97,8 @@ jobs:
         sync_image "quay.io/jetstack/cert-manager-webhook:v1.19.2" "cert-manager-webhook" "v1.19.2"
 
         # --- nvidia ib 镜像 ---
-        sync_image "nvcr.io/nvidia/mellanox/opensm:v5.11.2" "opensm" "v5.11.2"
         sync_image "nvcr.io/nvidia/mellanox/doca-driver:doca3.2.0-25.10-1.2.8.0-2-ubuntu24.04-amd64" "doca-driver" "doca3.2.0-25.10-1.2.8.0-2-ubuntu24.04-amd64"
+        sync_image "nvcr.io/nvidia/mellanox/opensm:v5.11.2" "opensm" "v5.11.2"
         sync_image "nvcr.io/nvidia/mellanox/network-operator-init-container:network-operator-v25.10.0" "network-operator-init-container" "network-operator-v25.10.0"
         sync_image "nvcr.io/nvidia/mellanox/node-feature-discovery:network-operator-v25.10.0" "node-feature-discovery" "network-operator-v25.10.0"
         sync_image "nvcr.io/nvidia/mellanox/maintenance-operator:network-operator-v25.10.0" "maintenance-operator" "network-operator-v25.10.0"
