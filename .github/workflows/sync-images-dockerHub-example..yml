@@ -97,6 +97,15 @@ jobs:
         sync_image "quay.io/jetstack/cert-manager-webhook:v1.19.2" "cert-manager-webhook" "v1.19.2"
 
         # --- nvidia ib 镜像 ---
+        sync_image "ghcr.io/mellanox/ib-kubernetes:v1.1.0" "ib-kubernetes" "v1.1.0"
+        sync_image "nvcr.io/nvidia/mellanox/ib-sriov-cni:network-operator-v25.10.0" "ib-sriov-cni" "network-operator-v25.10.0"
+        sync_image "nvcr.io/nvidia/mellanox/sriov-network-operator:network-operator-v25.10.0" "sriov-network-operator" "network-operator-v25.10.0"
+        sync_image "nvcr.io/nvidia/mellanox/ovs-cni-plugin:network-operator-v25.10.0" "ovs-cni-plugin" "network-operator-v25.10.0"
+        sync_image "ghcr.io/k8snetworkplumbingwg/network-resources-injector:v1.7.0" "network-resources-injector" "v1.7.0"
+        sync_image "nvcr.io/nvidia/mellanox/sriov-cni:network-operator-v25.10.0" "sriov-cni" "network-operator-v25.10.0"
+        sync_image "nvcr.io/nvidia/mellanox/sriov-network-operator-config-daemon:network-operator-v25.10.0" "sriov-network-operator-config-daemon" "network-operator-v25.10.0"
+        sync_image "nvcr.io/nvidia/mellanox/sriov-network-device-plugin:network-operator-v25.10.0" "sriov-network-device-plugin" "network-operator-v25.10.0"
+        sync_image "nvcr.io/nvidia/mellanox/sriov-network-operator-webhook:network-operator-v25.10.0" "sriov-network-operator-webhook" "network-operator-v25.10.0"
         sync_image "nvcr.io/nvidia/mellanox/doca-driver:doca3.2.0-25.10-1.2.8.0-2-ubuntu24.04-amd64" "doca-driver" "doca3.2.0-25.10-1.2.8.0-2-ubuntu24.04-amd64"
         sync_image "nvcr.io/nvidia/mellanox/opensm:v5.11.2" "opensm" "v5.11.2"
         sync_image "nvcr.io/nvidia/mellanox/network-operator-init-container:network-operator-v25.10.0" "network-operator-init-container" "network-operator-v25.10.0"
