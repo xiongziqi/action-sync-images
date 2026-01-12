@@ -90,6 +90,8 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
+        # --- minio ---
+        sync_image "minio/minio:latest" "minio" "latest"
         # --- network test ---
         sync_image "docker.io/wbitt/network-multitool:3.22" "network-multitool" "3.22"
 
