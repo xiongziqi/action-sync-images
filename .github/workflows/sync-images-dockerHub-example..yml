@@ -91,6 +91,7 @@ jobs:
         # ==================================================
 
         # ---juiceFS---
+        sync_image "docker.io/minio/mc:latest" "mc" "latest"
         sync_image "docker.io/juicedata/mount:ce-v1.3.1" "mount" "ce-v1.3.1"
         sync_image "docker.io/juicedata/csi-dashboard:v0.31.0" "csi-dashboard" "v0.31.0"
         sync_image "docker.io/juicedata/juicefs-csi-driver:v0.31.0" "juicefs-csi-driver" "v0.31.0"
