@@ -91,9 +91,11 @@ jobs:
         # ==================================================
 
         # --- mlflow argo ---
+        sync_image "quay.io/argoproj/argo-workflows:v3.7.7" "argo-workflows" "v3.7.7"
         sync_image "ghcr.io/mlflow/mlflow:v3.8.1" "mlflow" "v3.8.1"
         sync_image "quay.io/argoproj/argocli:v3.7.7" "argocli" "v3.7.7"
         sync_image "quay.io/argoproj/workflow-controller:v3.7.7" "workflow-controller" "v3.7.7"
+        
 
         # --- rancher ---
         sync_image "docker.io/rancher/mirrored-coredns-coredns:1.11.3" "mirrored-coredns-coredns" "1.11.3"
