@@ -90,6 +90,9 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
+        # --- rancher ---
+        sync_image "docker.io/rancher/mirrored-coredns-coredns:1.11.3" "mirrored-coredns-coredns" "1.11.3"
+
         # ---juiceFS---
         sync_image "docker.io/minio/mc:latest" "mc" "latest"
         sync_image "docker.io/juicedata/mount:ce-v1.3.1" "mount" "ce-v1.3.1"
