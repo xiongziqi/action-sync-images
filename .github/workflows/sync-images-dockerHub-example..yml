@@ -91,8 +91,7 @@ jobs:
         # ==================================================
 
         # --- mlflow argo ---
-        sync_image "quay.io/argoproj/argo-workflows:v3.7.7" "argo-workflows" "v3.7.7"
-        sync_image "ghcr.io/mlflow/mlflow:v3.8.1" "mlflow" "v3.8.1"
+        sync_image "docker.io/burakince/mlflow:v3.7.0" "burakince/mlflow" "v3.7.0"
         sync_image "quay.io/argoproj/argocli:v3.7.7" "argocli" "v3.7.7"
         sync_image "quay.io/argoproj/workflow-controller:v3.7.7" "workflow-controller" "v3.7.7"
         
