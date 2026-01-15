@@ -90,6 +90,7 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
         # --- llm traing ---
+        sync_image "docker.io/jupyterhub/configurable-http-proxy:5.1.0" "configurable-http-proxy" "5.1.0"
         sync_image "docker.io/jupyterhub/jupyterhub:5.4.3" "jupyterhub" "5.4.3"
         sync_image "docker.io/unsloth/unsloth:stable" "unsloth" "stable"
         sync_image "docker.io/huggingface/trl:0.26.2" "trl" "0.26.2"
