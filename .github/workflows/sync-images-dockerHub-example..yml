@@ -288,6 +288,7 @@ jobs:
 
         # --- kubernetes ---
         sync_image "registry.k8s.io/pause:3.10" "pause" "3.10"
+        sync_image "registry.k8s.io/pause:3.10.1" "pause" "3.10.1"
 
         # --- Polyaxon 依赖的基础镜像 ---
         sync_image "docker.io/library/alpine:3.19" "alpine" "3.19"
