@@ -90,6 +90,12 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
         # --- llm traing ---
+        sync_image "quay.io/jupyterhub/k8s-image-awaiter:4.3.2" "k8s-image-awaiter" "4.3.2"
+        sync_image "quay.io/jupyterhub/k8s-secret-sync:4.3.2" "k8s-secret-sync" "4.3.2"
+        sync_image "docker.io/library/traefik:v3.6.4" "traefik" "v3.6.4"
+        sync_image "registry.k8s.io/kube-scheduler:v1.30.14" "kube-scheduler" "v1.30.14"
+        sync_image "quay.io/jupyterhub/k8s-singleuser-sample:4.3.2" "k8s-singleuser-sample" "4.3.2"
+
         sync_image "quay.io/jupyterhub/k8s-hub:4.3.2" "k8s-hub" "4.3.2"
         sync_image "quay.io/jupyterhub/k8s-network-tools:4.3.2" "k8s-network-tools" "4.3.2"
         sync_image "docker.io/jupyterhub/configurable-http-proxy:5.1.0" "configurable-http-proxy" "5.1.0"
