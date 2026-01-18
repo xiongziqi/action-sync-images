@@ -89,6 +89,9 @@ jobs:
         # ==================================================
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
+        # --- python ---
+        sync_image "docker.io/python/python:3.11-slim" "python" "3.11-slim"
+
         # --- llm traing ---
         sync_image "quay.io/jupyterhub/k8s-image-awaiter:4.3.2" "k8s-image-awaiter" "4.3.2"
         sync_image "quay.io/jupyterhub/k8s-secret-sync:4.3.2" "k8s-secret-sync" "4.3.2"
