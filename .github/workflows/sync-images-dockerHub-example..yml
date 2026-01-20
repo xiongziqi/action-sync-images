@@ -91,6 +91,7 @@ jobs:
         # ==================================================
 
         # --- python ---
+        sync_image "docker.io/justsong/one-api:v0.6.10" "one-api" "v0.6.10"
         sync_image "docker.io/rayproject/ray:2.52.1-py311-cu128" "ray" "2.52.1-py311-cu128"
 
         sync_image "docker.io/python:3.11-slim" "python" "3.11-slim"
