@@ -90,7 +90,11 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
-        # --- python ---
+        sync_image "docker.io/volcanosh/vc-webhook-manager:v1.12.3" "vc-webhook-manager" "v1.12.3"
+        sync_image "docker.io/volcanosh/vc-webhook-server:v1.12.3" "vc-webhook-server" "v1.12.3"
+        sync_image "docker.io/volcanosh/vc-controller-manager:v1.12.3" "vc-controller-manager" "v1.12.3"
+        sync_image "docker.io/volcanosh/vc-webhook-server:v1.12.3" "vc-webhook-server" "v1.12.3"
+        
         sync_image "docker.io/curlimages/curl:8.18.0" "curl" "8.18.0"
         sync_image "docker.io/justsong/one-api:v0.6.10" "one-api" "v0.6.10"
         sync_image "docker.io/rayproject/ray:2.52.1-py311-cu128" "ray" "2.52.1-py311-cu128"
