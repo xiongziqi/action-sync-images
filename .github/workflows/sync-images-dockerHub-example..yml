@@ -53,7 +53,7 @@ jobs:
         
         # 2. 定义目标仓库前缀 (你的新命名空间)
         TARGET_REGISTRY="docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s"
-        TARGET_REGISTRY_ARM64="docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s_arm64"
+        TARGET_REGISTRY_ARM64="docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s_arm"
 
         # 3. 定义同步函数 (核心逻辑)
         sync_image() {
@@ -95,7 +95,7 @@ jobs:
           if skopeo inspect "$full_target" > /dev/null 2>&1; then
             echo "✅ [SKIP] $target_name:$target_tag"
           else
-            skopeo copy --override-os linux --override-arch arm64 --all \
+            skopeo copy --override-os linux --override-arch arm64 \
               "docker://$source_image" "$full_target"
             echo "🎉 [DONE] $target_name:$target_tag (arm64)"
           fi
