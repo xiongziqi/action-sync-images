@@ -90,6 +90,29 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
+        sync_image "rancher/klipper-helm:v0.9.14-build20260210" "klipper-helm" "v0.9.14-build20260210"
+        sync_image "rancher/klipper-lb:v0.4.14" "klipper-lb" "v0.4.14"
+        sync_image "rancher/local-path-provisioner:v0.0.34" "local-path-provisioner" "v0.0.34"
+        sync_image "rancher/mirrored-coredns-coredns:1.14.1" "mirrored-coredns-coredns" "1.14.1"
+        sync_image "rancher/mirrored-library-busybox:1.37.0" "mirrored-library-busybox" "1.37.0"
+        sync_image "rancher/mirrored-library-traefik:3.6.7" "mirrored-library-traefik" "3.6.7"
+        sync_image "rancher/mirrored-metrics-server:v0.8.1" "mirrored-metrics-server" "v0.8.1"
+        sync_image "rancher/mirrored-pause:3.6" "mirrored-pause" "3.6"
+
+        sync_image "rancher/rancher:v2.13.3" "rancher" "v2.13.3"
+        sync_image "rancher/rancher-agent:v2.13.3" "rancher-agent" "v2.13.3"
+        sync_image "rancher/rancher-webhook:v0.9.3" "rancher-webhook" "v0.9.3"
+        sync_image "rancher/shell:v0.6.2" "shell" "v0.6.2"
+        sync_image "rancher/fleet:v0.14.3" "fleet" "v0.14.3"
+        sync_image "rancher/fleet-agent:v0.14.3" "fleet-agent" "v0.14.3"
+        sync_image "rancher/system-agent:v0.3.14-suc" "system-agent" "v0.3.14-suc"
+        sync_image "rancher/system-upgrade-controller:v0.17.0" "system-upgrade-controller" "v0.17.0"
+        sync_image "rancher/remotedialer-proxy:v0.6.0" "remotedialer-proxy" "v0.6.0"
+        sync_image "rancher/ui-plugin-catalog:4.7.0" "ui-plugin-catalog" "4.7.0"
+
+        sync_image "rancher/system-agent-installer-rke2:v1.32.12-rke2r1" "system-agent-installer-rke2" "v1.32.12-rke2r1"
+        sync_image "rancher/system-agent-installer-k3s:v1.32.12-k3s1" "system-agent-installer-k3s" "v1.32.12-k3s1"
+
         sync_image "ghcr.io/spiffe/spire-agent:1.9.6" "spire-agent" "1.9.6"
         sync_image "docker.io/library/busybox:1.37.0" "busybox" "1.37.0"
         sync_image "ghcr.io/spiffe/spire-server:1.9.6" "spire-server" "1.9.6"
