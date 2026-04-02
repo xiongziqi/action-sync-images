@@ -123,11 +123,12 @@ jobs:
         sync_image_arm64 "rancher/system-agent:v0.3.14-suc" "system-agent" "v0.3.14-suc"
         sync_image_arm64 "rancher/system-upgrade-controller:v0.17.0" "system-upgrade-controller" "v0.17.0"
         sync_image_arm64 "rancher/remotedialer-proxy:v0.6.0" "remotedialer-proxy" "v0.6.0"
-        sync_image_arm64 "rancher/ui-plugin-catalog:4.7.0" "ui-plugin-catalog" "4.7.0"
+        sync_image "rancher/ui-plugin-catalog:4.7.0" "ui-plugin-catalog" "4.7.0"
 
         sync_image_arm64 "rancher/system-agent-installer-rke2:v1.32.12-rke2r1" "system-agent-installer-rke2" "v1.32.12-rke2r1"
         sync_image_arm64 "rancher/system-agent-installer-k3s:v1.32.12-k3s1" "system-agent-installer-k3s" "v1.32.12-k3s1"
 
+        # sync_image "rancher/ui-plugin-catalog:4.7.0" "ui-plugin-catalog" "4.7.0"
         # sync_image "ghcr.io/spiffe/spire-agent:1.9.6" "spire-agent" "1.9.6"
         # sync_image "docker.io/library/busybox:1.37.0" "busybox" "1.37.0"
         # sync_image "ghcr.io/spiffe/spire-server:1.9.6" "spire-server" "1.9.6"
