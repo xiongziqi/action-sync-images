@@ -53,6 +53,7 @@ jobs:
         
         # 2. 定义目标仓库前缀 (你的新命名空间)
         TARGET_REGISTRY="docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s"
+        TARGET_REGISTRY_ARM64="docker://crpi-cf3skza02u86mj4q.cn-chengdu.personal.cr.aliyuncs.com/hong_mirror_k8s_arm64"
 
         # 3. 定义同步函数 (核心逻辑)
         sync_image() {
