@@ -105,7 +105,7 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
-                sync_image "docker.io/rancher/hardened-addon-resizer:1.8.23-build20260206" "hardened-addon-resizer" "1.8.23-build20260206"
+        sync_image "docker.io/rancher/hardened-addon-resizer:1.8.23-build20260206" "hardened-addon-resizer" "1.8.23-build20260206"
         sync_image "docker.io/rancher/hardened-calico:v3.31.4-build20260327" "hardened-calico" "v3.31.4-build20260327"
         sync_image "docker.io/rancher/hardened-cluster-autoscaler:v1.10.3-build20260206" "hardened-cluster-autoscaler" "v1.10.3-build20260206"
         sync_image "docker.io/rancher/hardened-cni-plugins:v1.9.0-build20260309" "hardened-cni-plugins" "v1.9.0-build20260309"
