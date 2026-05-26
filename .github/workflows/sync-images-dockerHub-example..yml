@@ -105,7 +105,8 @@ jobs:
         # 4. 执行同步清单 (包含所有依赖)
         # ==================================================
 
-        sync_image "docker.io/rayproject/ray-llm:2.55.1-py312-cu130" "ray-llm" "2.55.1-py312-cu130"
+        sync_image "docker.io/juicedata/juicefs:1.3.1" "juicefs" "1.3.1"
+        # sync_image "docker.io/rayproject/ray-llm:2.55.1-py312-cu130" "ray-llm" "2.55.1-py312-cu130"
 
         # sync_image "docker.io/rancher/aks-operator:v1.14.1" "aks-operator" "v1.14.1"
         # sync_image "docker.io/rancher/appco-alertmanager:0.30.0-12.16" "appco-alertmanager" "0.30.0-12.16"
